@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Feed | Product Passion</title>
+        <link rel="stylesheet" href="styles/styles.css">
+    </head>
+    <body>
+        <header class="online-header">
+            <div class="logo-container">
+                <a href="index.html" title="Home"><img src="images/PP_logo_v2.png" class="logo"></a>
+            </div>
+            <form action="/profile" class="search-container">
+                <input type="text-field" placeholder="Search or view by ID" id="search-input" name="search-input">
+                <button type="submit" id="search-button">Search</button>
+            </form>
+            <nav class="online-nav">
+                <a href="feed.html" title="Feed" class="nav-item nav-item-online">Feed</a>
+                <a href="/X" title="Chat" class="nav-item nav-item-online">Chat</a>
+                <a href="/X" title="Notifications" class="nav-item nav-item-online">Notifications</a>
+                <a href="profile.html" class="nav-item nav-item-online">Profile</a>
+            </nav>
+        </header>
+        <main class="main-tag-feed">
+            <section class="main-feed-column-section">
+                <section class="publish-message-section" >
+                    <div class="feedback-cont"></div>
+                    <form action="" class="publish-message-form">
+                        <img src="" class="profile-picture-icon-feed">
+                        <div class="publish-form-div" >
+                            <input type="text-field" placeholder="Your title here*" id="post-title" name="post-title" class="post-message-title" >
+                            <input type="text-field" placeholder="Your post message here*" id="post-message" name="post-message" class="post-message-class" >
+                        </div>
+                        <div class="publish-button-div" > 
+                            <button type="submit" id="post-button" class="publish-button-class">Publish</button>
+                        </div>
+                    </form>
+                </section>
+                <section class="tag-section">
+                    <div class="tag-container-div">
+                        <h3 class="sort-by-title">Filter by:</h3>
+                        <div class="sort-alternative-cont ">
+                            <div class="tag-div">All</div>
+                            <div class="tag-div">Product knowledge</div>
+                            <div class="tag-div">Practical help</div>
+                            <div class="tag-div">Your favorites</div>
+                            <div class="tag-div">Your posts</div>
+                            <div class="tag-div">Feedback</div>
+                        </div>
+                    </div>
+                </section>
+                <section class="tag-section tag-section-sort-by">
+                    <div class="sort-div">
+                        <h3 class="sort-by-title">Sort by:</h3>
+                        <div class="sort-alternative-cont">
+                            <div class="sort-alternative">Recent activity</div>
+                            <div class="sort-alternative">Newest</div>
+                            <div class="sort-alternative">Popularity</div>
+                        </div>
+                    </div>
+                </section>
+                <section class="feed-section">
+                    <div class="feed-cont-new"></div>
+                    <div class="feed-cont">
+                        <!-- <div class="post-card">
+                            <div class="post-card-header">
+                                    <div class="post-card-header-div">
+                                        <img src="" class="profile-picture-icon" alt="Profile picture thumbnail">
+                                    </div>
+                                    <div>
+                                        <div class="name-poster-div">Arnulf Gregersen</div>
+                                        <div class="post-footer-time-cont">
+                                            <div>1 days ago</div>
+                                        </div>
+                                    </div>
+                                <div class="post-card-header-div">
+                                    <div class="topic-tag-cont">
+                                        <div class="topic-tag">Topic tag</div>
+                                        <div class="topic-tag">Topic tag</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post-card-main">
+                                <h4 class="post-card-title">Title</h4>
+                                <div class="post-main-message">Main Message</div>
+                                <a href="post.html" class="see-full-button">
+                                    <div class="see-full-div">See Full</div>
+                                </a>
+                            </div>
+                            <div class="post-card-footer-individual">
+                                <div class="post-footer-icon-cont">
+                                    <img src="images/like-icon-heart.png" alt="Like icon" class="like-icon-class">
+                                    <div>13 likes</div>
+                                </div>
+                                <div class="post-footer-icon-cont">
+                                    <img src="images/svg-comment.svg" alt="Comment icon" class="comment-icon-class">
+                                    <div>8 comments</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-card">
+                            <div class="post-card-header">
+                                    <div class="post-card-header-div">
+                                        <img src="" class="profile-picture-icon" alt="Profile picture thumbnail">
+                                    </div>
+                                    <div>
+                                        <div class="name-poster-div">Arnulf Gregersen</div>
+                                        <div class="post-footer-time-cont">
+                                            <div>1 days ago</div>
+                                        </div>
+                                    </div>
+                                <div class="post-card-header-div">
+                                    <div class="topic-tag-cont">
+                                        <div class="topic-tag">Topic tag</div>
+                                        <div class="topic-tag">Topic tag</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post-card-main">
+                                <h4 class="post-card-title">Title</h4>
+                                <div class="post-main-message">Main Message</div>
+                                <a href="post.html" class="see-full-button">
+                                    <div class="see-full-div">See Full</div>
+                                </a>
+                            </div>
+                            <div class="post-card-footer-individual">
+                                <div class="post-footer-icon-cont">
+                                    <img src="images/like-icon-heart.png" alt="Like icon" class="like-icon-class">
+                                    <div>13 likes</div>
+                                </div>
+                                <div class="post-footer-icon-cont">
+                                    <img src="images/svg-comment.svg" alt="Comment icon" class="comment-icon-class">
+                                    <div>8 comments</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-card">
+                            <div class="post-card-header">
+                                    <div class="post-card-header-div">
+                                        <img src="" class="profile-picture-icon" alt="Profile picture thumbnail">
+                                    </div>
+                                    <div>
+                                        <div class="name-poster-div">Arnulf Gregersen</div>
+                                        <div class="post-footer-time-cont">
+                                            <div>1 days ago</div>
+                                        </div>
+                                    </div>
+                                <div class="post-card-header-div">
+                                    <div class="topic-tag-cont">
+                                        <div class="topic-tag">Topic tag</div>
+                                        <div class="topic-tag">Topic tag</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post-card-main">
+                                <h4 class="post-card-title">Title</h4>
+                                <div class="post-main-message">Main Message</div>
+                                <a href="post.html" class="see-full-button">
+                                    <div class="see-full-div">See Full</div>
+                                </a>
+                            </div>
+                            <div class="post-card-footer-individual">
+                                <div class="post-footer-icon-cont">
+                                    <img src="images/like-icon-heart.png" alt="Like icon" class="like-icon-class">
+                                    <div>13 likes</div>
+                                </div>
+                                <div class="post-footer-icon-cont">
+                                    <img src="images/svg-comment.svg" alt="Comment icon" class="comment-icon-class">
+                                    <div>8 comments</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-card">
+                            <div class="post-card-header">
+                                    <div class="post-card-header-div">
+                                        <img src="" class="profile-picture-icon" alt="Profile picture thumbnail">
+                                    </div>
+                                    <div>
+                                        <div class="name-poster-div">Arnulf Gregersen</div>
+                                        <div class="post-footer-time-cont">
+                                            <div>1 days ago</div>
+                                        </div>
+                                    </div>
+                                <div class="post-card-header-div">
+                                    <div class="topic-tag-cont">
+                                        <div class="topic-tag">Topic tag</div>
+                                        <div class="topic-tag">Topic tag</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post-card-main">
+                                <h4 class="post-card-title">Title</h4>
+                                <div class="post-main-message">Main Message</div>
+                                <a href="post.html" class="see-full-button">
+                                    <div class="see-full-div">See Full</div>
+                                </a>
+                            </div>
+                            <div class="post-card-footer-individual">
+                                <div class="post-footer-icon-cont">
+                                    <img src="images/like-icon-heart.png" alt="Like icon" class="like-icon-class">
+                                    <div>13 likes</div>
+                                </div>
+                                <div class="post-footer-icon-cont">
+                                    <img src="images/svg-comment.svg" alt="Comment icon" class="comment-icon-class">
+                                    <div>8 comments</div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </section>
+            </section>
+            <section class="side-column-section">
+                <div class="background-image-cont">
+                    <img src="images/community-space-grensen.png" alt="Community office" class="community-image">
+                </div>
+                <div class="community-div">
+                    <h4 class="community-title">Product Passion Community</h4>
+                    <p>Let's collaborate to share the most essential product insights, build the best product community, and construct the best products.</p>
+                </div>
+                <div class="member-div">
+                    <div class="total-members-div">
+                        <div>2423</div>
+                        <div>Total members</div>
+                    </div>
+                    <div class="online-div">
+                        <div>168</div>
+                        <div>Online now</div>
+                    </div>
+                    <div class="admin-div">
+                        <div>8</div>
+                        <div>Admins</div>
+                    </div>
+                </div>
+                <div class="online-now-list-div">
+                    <div class="online-now-cont">
+                        <h4>Online members:</h4>
+                        <div class="online-now-list-item-div">
+                            <img src="" alt="Profile picture" class="profile-pic-class">
+                            <div class="full-name-online-now-div">Firstname Lastname</div>
+                            <img src="images/comment-icon.png" class="chat-icon">
+                        </div>
+                        <div class="online-now-list-item-div">
+                            <img src="" alt="Profile picture" class="profile-pic-class">
+                            <div class="full-name-online-now-div">Firstname Lastname</div>
+                            <img src="images/comment-icon.png" class="chat-icon">
+                        </div>
+                        <div class="online-now-list-item-div">
+                            <img src="" alt="Profile picture" class="profile-pic-class">
+                            <div class="full-name-online-now-div">Firstname Lastname</div>
+                            <img src="images/comment-icon.png" class="chat-icon">
+                        </div>
+                        <div class="online-now-list-item-div">
+                            <img src="" alt="Profile picture" class="profile-pic-class">
+                            <div class="full-name-online-now-div">Firstname Lastname</div>
+                            <img src="images/comment-icon.png" class="chat-icon">
+                        </div>
+                        <div class="online-now-list-item-div">
+                            <img src="" alt="Profile picture" class="profile-pic-class">
+                            <div class="full-name-online-now-div">Firstname Lastname</div>
+                            <img src="images/comment-icon.png" class="chat-icon">
+                        </div>
+                        <div class="online-now-list-item-div">
+                            <img src="" alt="Profile picture" class="profile-pic-class">
+                            <div class="full-name-online-now-div">Firstname Lastname</div>
+                            <img src="images/comment-icon.png" class="chat-icon">
+                        </div>
+                        <div class="online-now-list-item-div">
+                            <img src="" alt="Profile picture" class="profile-pic-class">
+                            <div class="full-name-online-now-div">Firstname Lastname</div>
+                            <img src="images/comment-icon.png" class="chat-icon">
+                        </div>
+                        <div class="online-now-list-item-div">
+                            <img src="" alt="Profile picture" class="profile-pic-class">
+                            <div class="full-name-online-now-div">Firstname Lastname</div>
+                            <img src="images/comment-icon.png" class="chat-icon">
+                        </div>
+                        <div class="online-now-list-item-div">
+                            <img src="" alt="Profile picture" class="profile-pic-class">
+                            <div class="full-name-online-now-div">Firstname Lastname</div>
+                            <img src="images/comment-icon.png" class="chat-icon">
+                        </div>
+                        <div class="online-now-list-item-div">
+                            <img src="" alt="Profile picture" class="profile-pic-class">
+                            <div class="full-name-online-now-div">Firstname Lastname</div>
+                            <img src="images/comment-icon.png" class="chat-icon">
+                        </div>
+                        <div class="online-now-list-item-div">
+                            <img src="" alt="Profile picture" class="profile-pic-class">
+                            <div class="full-name-online-now-div">Firstname Lastname</div>
+                            <img src="images/comment-icon.png" class="chat-icon">
+                        </div>
+                    </div> 
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div>All rights reserved © 2023</div>
+            <a href="mailto:post@productpassion.no">Post@productpassion.no</a>
+        </footer>
+        <script src="js/feed.js"></script>
+    </body>
+</html>
