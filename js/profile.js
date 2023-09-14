@@ -90,6 +90,9 @@ async function showProfilePosts() {
             let postId = json[i].id;
             console.log("postID: ", postId);
 
+            let postTag = json[i].tags[0];
+            console.log("postTag: ", postTag);
+
             const postCard = document.createElement("div");
             postCard.classList.add("post-card");
             postCard.innerHTML = `
@@ -106,8 +109,7 @@ async function showProfilePosts() {
                     </div>
                     <div class="post-card-header-div">
                         <div class="topic-tag-cont">
-                            <div class="topic-tag">Topic tag</div>
-                            <div class="topic-tag">Topic tag</div>
+                            <div class="topic-tag"></div>
                         </div>
                     </div>
                 </div>
@@ -133,6 +135,7 @@ async function showProfilePosts() {
             postCard.querySelector(".post-card-title").textContent = postTitle;
             postCard.querySelector(".post-main-message").textContent = postBodyExcerpt;
             postCard.querySelector(".name-poster-div").textContent = postAuthor;
+            postCard.querySelector(".topic-tag").textContent = postTag;
             postCard.querySelector(".see-full-button").setAttribute("title", postTitle);
             feedCont.appendChild(postCard);
 

@@ -23,7 +23,7 @@
             </nav>
         </header>
         <main class="main-tag-feed" id="main-feed-id-indvidual-post">
-            <section class="main-feed-column-section">
+            <section class="main-feed-column-section column-section-single-post">
                 <section class="feed-section">
                     <!-- <div class="post-card-individual">
                         <div class="post-card-header">
@@ -90,13 +90,42 @@
                         </div>
                     </div>          -->
                 </section>
+                <section class="edit-and-delete-section">
+                    <div class="post-footer-icon-cont">
+                        <div class="edit-post-button">Edit post</div>
+                    </div>
+                    <div class="post-footer-icon-cont">
+                        <div class="delete-post-button" id="delete-button">Delete post</div>
+                    </div>
+                </section>
+                <section class="publish-message-section publish-message-section-update-single-post" >
+                    <div class="feedback-cont"></div>
+                    <form action="" class="publish-message-form">
+                        <label for="tags" id="tag-label-id">Choose best tag:</label>
+                        <select name="tags" id="tags">
+                            <option value="Product">Product</option>
+                            <option value="Product discovery">Product discovery</option>
+                            <option value="Product delivery">Product delivery</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Innovation">Innovation</option>
+                            <option value="Funding">Funding</option>
+                        </select>
+                        <div class="publish-form-div" >
+                            <input type="text-field" placeholder="Your title here*" id="post-title" name="post-title" class="post-message-title post-message-title-update" >
+                            <input type="text-field" placeholder="Your post message here*" id="post-message" name="post-message" class="post-message-class" >
+                        </div>
+                        <div class="publish-button-div" > 
+                            <button type="submit" id="post-button" class="publish-button-class">Update</button>
+                        </div>
+                    </form>
+                </section>
             </section>
             <section class="side-column-section profile-section-profile-page">
                 <div class="background-image-cont">
                     <img src="images/blank-profile-picture.png" alt="Community office" class="profile-image">
                 </div>
                 <div class="community-div">
-                    <h4 class="community-title">Arnulf Gregersen</h4>
+                    <h4 class="community-title"></h4>
                     <p></p>
                     <p></p>
                 </div>

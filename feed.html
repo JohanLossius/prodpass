@@ -11,9 +11,10 @@
             <div class="logo-container">
                 <a href="index.html" title="Home"><img src="images/PP_logo_v2.png" class="logo"></a>
             </div>
-            <form action="/profile" class="search-container">
-                <input type="text-field" placeholder="Search or view by ID" id="search-input" name="search-input">
+            <form action="" class="search-container">
+                <input type="text-field" placeholder="Search or find post by ID" id="search-input" name="search-input">
                 <button type="submit" id="search-button">Search</button>
+                <button type="submit" id="find-button">Find</button>
             </form>
             <nav class="online-nav">
                 <a href="feed.html" title="Feed" class="nav-item nav-item-online">Feed</a>
@@ -27,7 +28,15 @@
                 <section class="publish-message-section" >
                     <div class="feedback-cont"></div>
                     <form action="" class="publish-message-form">
-                        <img src="" class="profile-picture-icon-feed">
+                        <label for="tags" id="tag-label-id">Choose best tag:</label>
+                        <select name="tags" id="tags">
+                            <option value="Product">Product</option>
+                            <option value="Product discovery">Prod. discovery</option>
+                            <option value="Product delivery">Prod. delivery</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Innovation">Innovation</option>
+                            <option value="Funding">Funding</option>
+                        </select>
                         <div class="publish-form-div" >
                             <input type="text-field" placeholder="Your title here*" id="post-title" name="post-title" class="post-message-title" >
                             <input type="text-field" placeholder="Your post message here*" id="post-message" name="post-message" class="post-message-class" >
@@ -41,12 +50,13 @@
                     <div class="tag-container-div">
                         <h3 class="sort-by-title">Filter by:</h3>
                         <div class="sort-alternative-cont ">
-                            <div class="tag-div">All</div>
-                            <div class="tag-div">Product knowledge</div>
-                            <div class="tag-div">Practical help</div>
-                            <div class="tag-div">Your favorites</div>
-                            <div class="tag-div">Your posts</div>
-                            <div class="tag-div">Feedback</div>
+                            <div class="tag-div" id="tag-div-product">Product</div>
+                            <div class="tag-div" id="tag-div-discovery">Product discovery</div>
+                            <div class="tag-div" id="tag-div-delivery">Product delivery</div>
+                            <div class="tag-div" id="tag-div-technology">Technology</div>
+                            <div class="tag-div" id="tag-div-innovation">Innovation</div>
+                            <div class="tag-div" id="tag-div-funding">Funding</div>
+                            <div class="tag-div your-posts-tag" id="tag-div-your-posts">Your posts</div>
                         </div>
                     </div>
                 </section>
