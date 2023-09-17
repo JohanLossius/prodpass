@@ -1,4 +1,5 @@
-// Sign Up validation
+import { baseUrl } from "./constants/api.mjs";
+import { passwordCheck, emailCheck, firstNameCheck, lastNameCheck } from "./validation/validation.mjs";
 
 const form = document.querySelector("#register-form");
 
@@ -6,18 +7,20 @@ const firstNameInput = document.querySelector(".first-name-input");
 const lastNameInput = document.querySelector(".last-name-input");
 const emailInput = document.querySelector(".email-input");
 const passwordInput = document.querySelector(".password-input");
+const avatarInput = document.querySelector(".avatar-input");
 
 const firstNameCont = document.querySelector(".first-name-container");
 const lastNameCont = document.querySelector(".last-name-container");
 const emailCont = document.querySelector(".email-feedback-container");
 const passwordCont = document.querySelector(".password-feedback-container");
+const avatarCont = document.querySelector(".avatar-feedback-container");
 
 const messageCont = document.querySelector(".message-cont");
 const submitButton = document.querySelector("#submit-button");
 
-const baseUrl = "https://api.noroff.dev/api/v1";
-const signUpUrlEndPoint = "/social/auth/register";
-const signUpUrl = baseUrl + signUpUrlEndPoint;
+const signUpUrl = `${baseUrl}/social/auth/register`;
+
+// Sign Up validation
 
 // First name validation
 
@@ -102,67 +105,7 @@ function signUp() {
         passwordCont.innerHTML = `<span class="error-message">*Please fill in your password of at least 8 characters*</span>`;
     } else {
         passwordCont.innerHTML = `<span class="success-message">*Password looks good*</span>`;
-    }
-
-    // Submission validation and messaging.
-    
-    // if (firstNameCheck(firstNameInput.value) && lastNameCheck(lastNameInput.value) && passwordCheck(passwordInput.value) && emailCheck(emailInput.value)) {
-
-        // messageCont.innerHTML = `<span class="success-message">Your message was sent successfully. You'll hear from us within 2 working days.</span>`;
-        // form.reset();
-        // firstNameCont.innerHTML = `First name*`;
-        // lastNameCont.innerHTML = `Last name*`;
-        // emailInput.innerHTML = `Email*`;
-        // passwordInput.innerHTML = `Password*`;
-
-        // } else {
-        //     messageCont.innerHTML = `<span class="error-message">There was an error.</span>`
-        // }
-};
-
-function firstNameCheck(firstName) {
-    const firstNameLength = firstName.trim().length;
-    console.log(firstNameLength);
-    if (firstNameLength >= 2) {
-        return true;
-    } else {
-        return false;
-    }
-};
-
-function lastNameCheck(lastName) {
-    const lastNameLength = lastName.trim().length;
-    console.log(lastNameLength);
-    if (lastNameLength >= 2) {
-        return true;
-    } else {
-        return false;
-    }
-};
-
-function emailCheck(email) {
-    const regEx = /\S+@\S+\.\S+/;
-    const validEmail = regEx.test(email);
-    console.log(validEmail);
-
-    const studNoroffCont = email.indexOf('@stud.noroff.no');
-    const noroffCont = email.indexOf('@noroff.no');
-
-    if(validEmail === true && (noroffCont > -1 === true || studNoroffCont > -1 === true)) {
-        return true;
-    } else {
-        return false;
-    };
-};
-
-function passwordCheck(password) {
-    const passwordLength = password.trim().length;
-    console.log(passwordLength);
-    if (passwordLength >= 8) {
-        return true;
-    } else {
-        return false;
-    }
+    }    
 };
 
 /* Register Code */
@@ -175,6 +118,7 @@ form.addEventListener("submit", async (data) => {
         const lastNameConst = lastNameInput.value;
         const emailConst = emailInput.value;
         const passwordConst = passwordInput.value;
+        const avatarConst = avatarInput.value;
 
         const emailConstLower = emailConst.toLowerCase();
 
@@ -184,6 +128,7 @@ form.addEventListener("submit", async (data) => {
               name: `${firstNameConst}_${lastNameConst}`,
               email: `${emailConstLower}`,
               password: `${passwordConst}`,
+              avatar: `${avatarConst}`
             }),
             headers: {
               'Content-type': 'application/json; charset=UTF-8',
@@ -191,13 +136,14 @@ form.addEventListener("submit", async (data) => {
           };
         
           console.log("RequestOptions", requestOptions);
-          
+
         try {
             const resp = await fetch(signUpUrl, requestOptions)
-            if(!resp.ok)
-            throw new Error("Something went wrong");
+            if(!resp.ok) {
             const json = await resp.json();
-            console.log(json);
+            console.log("error json: ", json);
+            throw new Error(json.errors[0].message);
+            }
             if(resp.ok) {
                 messageCont.innerHTML = `<div class="register-success-cont">
                                             <h3 class="success-message">Your profile was successfully registered, and you can now log in to Product Passion.</h3>
@@ -214,72 +160,9 @@ form.addEventListener("submit", async (data) => {
         }
         catch(error) {
             console.log(error);
+            messageCont.innerHTML = `<span class="error-message">${error}</span>`
         }
     } else {
         messageCont.innerHTML = `<span class="error-message">There was an error.</span>`
     }
 });
-
-// form.addEventListener("submit", (data) => {
-//     data.preventDefault();
-  
-//     if (username.value == "" || password.value == "") {
-//       // throw error
-//     } else {
-//       // perform operation with form input
-//     }
-//   });
-
-  
-// const firstNameInput = document.querySelector(".first-name-input");
-// const lastNameInput = document.querySelector(".last-name-input");
-// const emailInput = document.querySelector(".email-input");
-// const passwordInput = document.querySelector(".password-input");
-
-
-
-// const requestOptions = {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       name: `${firstNameInput + "_" + lastNameInput}`,
-//       email: `${emailInput}`,
-//       password: `${passwordInput}`,
-//     }),
-//     headers: {
-//       'Content-type': 'application/json; charset=UTF-8',
-//     },
-//   };
-  
-//   submitButton.addEventListener("click", registerUser);
-  
-//   function registerUser() = fetch('https://api.noroff.dev/api/v1/social/auth/register', requestOptions)
-//     .then((response) => response.json())
-//     .then((json) => console.log(json));
-
-    // endpoint social register:
-
-    // https://api.noroff.dev/api/v1/social/auth/register
-
-    // Base URL
-
-    // We follow a URL structure of https://api.noroff.dev/api/<version>/<endpoint>.
-
-    // The API base URL for v1 is https://api.noroff.dev/api/v1.
-
-
-    // const fetchOptions = {
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //       title: 'foo',
-    //       body: 'bar',
-    //       userId: 1,
-    //     }),
-    //     headers: {
-    //       'Content-type': 'application/json; charset=UTF-8',
-    //     },
-    //   };
-      
-    //   // Using the `fetchOptions` object we created aboves
-    //   fetch('https://jsonplaceholder.typicode.com/posts', fetchOptions)
-    //     .then((response) => response.json())
-    //     .then((json) => console.log(json));

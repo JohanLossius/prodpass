@@ -4,6 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Post Title | Product Passion</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Zilla+Slab:wght@500&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="styles/styles.css">
     </head>
     <body>
@@ -11,14 +15,14 @@
             <div class="logo-container">
                 <a href="index.html" title="Home"><img src="images/PP_logo_v2.png" class="logo"></a>
             </div>
-            <form action="/profile" class="search-container">
+            <!-- <form action="/profile" class="search-container">
                 <input type="text-field" placeholder="Search or view by ID" id="search-input" name="search-input">
                 <button type="submit" id="search-button">Search</button>
-            </form>
+            </form> -->
             <nav class="online-nav">
                 <a href="feed.html" title="Feed" class="nav-item nav-item-online">Feed</a>
-                <a href="/X" title="Chat" class="nav-item nav-item-online">Chat</a>
-                <a href="/X" title="Notifications" class="nav-item nav-item-online">Notifications</a>
+                <!-- <a href="/X" title="Chat" class="nav-item nav-item-online">Chat</a>
+                <a href="/X" title="Notifications" class="nav-item nav-item-online">Notifications</a> -->
                 <a href="profile.html" class="nav-item nav-item-online">Profile</a>
             </nav>
         </header>
@@ -126,13 +130,13 @@
                 </div>
                 <div class="community-div">
                     <h4 class="community-title"></h4>
-                    <p></p>
+                    <p class="profile-email-class"></p>
                     <p></p>
                 </div>
-                <div class="joined-div-cont">
+                <!-- <div class="joined-div-cont">
                     <div class="online-or-not-div">Online now</div>
                     <div class="joined-date-div">Joined the 16th of February 2023</div>
-                </div>
+                </div> -->
                 <div class="member-div">
                     <div class="total-members-div">
                         <div class="nr-of-posts"></div>
@@ -156,6 +160,6 @@
             <div>All rights reserved © 2023</div>
             <a href="mailto:post@productpassion.no">Post@productpassion.no</a>
         </footer>
-        <script src="js/post.js"></script>
+        <script type="module" src="js/post.mjs"></script>
     </body>
 </html>

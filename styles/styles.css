@@ -1,5 +1,9 @@
 /* Universal */
 
+html * {
+    font-family: "dosis", sans-serif;
+}
+
 body {
     font-family: 'Dosis', sans-serif;
     font-size: 1.2rem;
@@ -58,6 +62,14 @@ nav {
     font-weight: bolder;
     font-size: large;
     text-decoration: none;
+    background-color: #F5F1F1;
+    padding: 1rem;
+    border-radius: 25px;
+    height: 1.7rem;
+    line-height: 1.7rem;
+    border: solid;
+    border-color: #F5F1F1;
+    border-width: 2px;
 }
 
 main {
@@ -118,6 +130,13 @@ h2 {
     text-align: center;
     color: #F96B87;
     text-decoration: none;
+}
+
+#join-geeky-cta, #mobile-cta {
+    background-color: #F96B87;
+    color: black;
+    border: none;
+    font-weight: normal;
 }
 
 .home-section {
@@ -219,6 +238,7 @@ footer {
     font-weight: bold;
     font-size: small;
     background-color: white;
+    font-family: "dosis", sans-serif;
 }
 
 .marked-tag {
@@ -242,6 +262,14 @@ footer {
 .profile-picture-icon {
     width: auto;
     height: 80%;
+}
+
+.profile-picture-icon-post {
+    width: auto;
+    max-width: 4rem;
+    height: auto;
+    max-height: 3.5rem;
+    border-radius: 10px;
 }
 
 .profile-picture-icon, .publish-form-div, .publish-button-div {
@@ -277,6 +305,7 @@ footer {
     color:#F96B87;
     font-size: large;
     text-align: center;
+    font-family: 'Dosis', sans-serif;
 }
 
 .post-message-title {
@@ -426,7 +455,8 @@ footer {
 
 .post-main-message {
     min-height: 100px;
-    width: 100%;
+    width: 90%;
+    margin: auto;
 }
 
 .see-full-button {
@@ -469,6 +499,7 @@ footer {
     background-color: #F5F1F1;
     border-radius: 25px;
     margin: 0 2rem;
+    max-height: 1400px;
 }
 
 .background-image-cont {
@@ -537,6 +568,7 @@ footer {
 .profile-image {
     width: 40%;
     height: auto;
+    border-radius: 10px;
 }
 
 .edit-profile-div {
@@ -811,10 +843,11 @@ footer {
 .submit-button-class {
     padding: 1.5rem;
     font-size: 2rem;
-    border-color: #F96B87;
+    border: none;
     border-radius: 25px;
-    background-color: #F5F1F1;
-    color:#F96B87;
+    background-color:#F96B87;
+    color: black;
+    font-weight: normal;
 }
 
 .login-form > div > input, .register-form-class > div > input {
@@ -853,7 +886,7 @@ footer {
 
 /* Signup */
 
-.first-name-input, .last-name-input, .email-input, .password-input {
+.first-name-input, .last-name-input, .email-input, .password-input, .avatar-input {
     width: 25rem;
 }
 
@@ -881,7 +914,7 @@ footer {
 
 @media (max-width: 1399px) {
     .online-nav {
-        justify-content: right;
+
     }
 }
 
@@ -929,11 +962,14 @@ footer {
     #main-feed-id-indvidual-post {
         flex-direction: column;
     }
+
+    header {
+        justify-content: space-evenly;
+    }
 }
 
 @media (max-width: 999px) {
     .online-nav {
-        flex-direction: column;
         text-align: right;
         width: auto;
     }

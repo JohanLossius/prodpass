@@ -1,12 +1,5 @@
-const usernameConst = localStorage.getItem("username");
-const token = localStorage.getItem("accessToken");
-
-const baseUrl = "https://api.noroff.dev/api/v1";
-const allUserPostsEndpoint = `/social/profiles/${usernameConst}/posts?_author=true&_comments=true&_reactions=true`;
-const profileEndpoint = `/social/profiles/${usernameConst}`;
-
-const allUserPostsUrl = baseUrl + allUserPostsEndpoint;
-const profileUrl = baseUrl + profileEndpoint;
+import { token, usernameConst, profilePictureUrl } from "./constants/localStorage.mjs";
+import { profileUrl, allUserPostsUrl } from "./constants/api.mjs";
 
 const feedCont = document.querySelector(".feed-cont");
 
@@ -17,6 +10,7 @@ const nrOfFollowers = document.querySelector(".nr-of-followers");
 const nrOfFollowing = document.querySelector(".nr-of-following");
 const nrOfPosts = document.querySelector(".nr-of-posts");
 const profileImage = document.querySelector(".profile-image");
+const profileBodyEmail = document.querySelector(".profile-email-class");
 
 const options = {
     headers: {
@@ -41,12 +35,22 @@ async function profileData() {
         let posts = json2._count.posts;
         console.log("posts: ", posts);
 
-        let avatar = json2.avatar;
-        console.log("avatar: ", avatar);
+        let profilePicture = json2.avatar;
+        console.log("profilePicture: ", profilePicture);
+        if(profilePicture) {
+            profilePicture = json2.avatar;
+        } else {
+            profilePicture = "./images/blank-profile-picture.png";
+        };
 
+        let profileEmail = json2.email;
+        console.log("profileEmail ", profileEmail);
+
+        profileImage.setAttribute("src", profilePicture);
         nrOfFollowers.innerHTML = followers;
         nrOfFollowing.innerHTML = following;
         nrOfPosts.innerHTML = posts;
+        profileBodyEmail.textContent = profileEmail;
     }
 
     catch (error) {
@@ -90,6 +94,14 @@ async function showProfilePosts() {
             let postId = json[i].id;
             console.log("postID: ", postId);
 
+            let postAuthorImage = json[i].author.avatar;
+            console.log("postImage: ", postAuthorImage);
+            if(postAuthorImage) {
+                postAuthorImage = json[i].author.avatar;
+            } else {
+                postAuthorImage = "./images/blank-profile-picture.png";
+            };
+
             let postTag = json[i].tags[0];
             console.log("postTag: ", postTag);
 
@@ -99,7 +111,7 @@ async function showProfilePosts() {
 
                 <div class="post-card-header">
                     <div class="post-card-header-div">
-                        <img src="" class="profile-picture-icon" alt="Profile picture thumbnail">
+                        <img class="profile-picture-icon-post" alt="">
                     </div>
                     <div>
                         <div class="name-poster-div"></div>
@@ -137,46 +149,9 @@ async function showProfilePosts() {
             postCard.querySelector(".name-poster-div").textContent = postAuthor;
             postCard.querySelector(".topic-tag").textContent = postTag;
             postCard.querySelector(".see-full-button").setAttribute("title", postTitle);
+            postCard.querySelector(".profile-picture-icon-post").setAttribute("src", postAuthorImage);
             feedCont.appendChild(postCard);
 
-            // feedCont.innerHTML += `
-            //                     <div class="post-card">
-            //                         <div class="post-card-header">
-            //                                 <div class="post-card-header-div">
-            //                                     <img src="" class="profile-picture-icon" alt="Profile picture thumbnail">
-            //                                 </div>
-            //                                 <div>
-            //                                     <div class="name-poster-div">${usernameConst}</div>
-            //                                     <div class="post-footer-time-cont">
-            //                                         <div>Posted: ${postDate}</div>
-            //                                     </div>
-            //                                 </div>
-            //                             <div class="post-card-header-div">
-            //                                 <div class="topic-tag-cont">
-            //                                     <div class="topic-tag">Topic tag</div>
-            //                                     <div class="topic-tag">Topic tag</div>
-            //                                 </div>
-            //                             </div>
-            //                         </div>
-            //                         <div class="post-card-main">
-            //                             <h4 class="post-card-title">${postTitle}</h4>
-            //                             <div class="post-main-message">${postBodyExcerpt}</div>
-            //                             <a href="post.html?postId=${postId}" title="${postTitle}" class="see-full-button">
-            //                                 <div class="see-full-div">See Full</div>
-            //                             </a>
-            //                         </div>
-            //                         <div class="post-card-footer-individual">
-            //                             <div class="post-footer-icon-cont">
-            //                                 <img src="images/like-icon-heart.png" alt="Like icon" class="like-icon-class">
-            //                                 <div>0 likes</div>
-            //                             </div>
-            //                             <div class="post-footer-icon-cont">
-            //                                 <img src="images/svg-comment.svg" alt="Comment icon" class="comment-icon-class">
-            //                                 <div>0 comments</div>
-            //                             </div>
-            //                         </div>
-            //                     </div>
-            //                     `
         }
 
     } catch (error) {

@@ -4,6 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Feed | Product Passion</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Zilla+Slab:wght@500&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="styles/styles.css">
     </head>
     <body>
@@ -11,15 +15,15 @@
             <div class="logo-container">
                 <a href="index.html" title="Home"><img src="images/PP_logo_v2.png" class="logo"></a>
             </div>
-            <form action="" class="search-container">
+            <!-- <form action="" class="search-container">
                 <input type="text-field" placeholder="Search or find post by ID" id="search-input" name="search-input">
                 <button type="submit" id="search-button">Search</button>
                 <button type="submit" id="find-button">Find</button>
-            </form>
+            </form> -->
             <nav class="online-nav">
-                <a href="feed.html" title="Feed" class="nav-item nav-item-online">Feed</a>
-                <a href="/X" title="Chat" class="nav-item nav-item-online">Chat</a>
-                <a href="/X" title="Notifications" class="nav-item nav-item-online">Notifications</a>
+                <a href="feed.html" title="Feed" class="nav-item nav-item-online marked-tag">Feed</a>
+                <!-- <a href="/X" title="Chat" class="nav-item nav-item-online">Chat</a>
+                <a href="/X" title="Notifications" class="nav-item nav-item-online">Notifications</a> -->
                 <a href="profile.html" class="nav-item nav-item-online">Profile</a>
             </nav>
         </header>
@@ -50,25 +54,24 @@
                     <div class="tag-container-div">
                         <h3 class="sort-by-title">Filter by:</h3>
                         <div class="sort-alternative-cont ">
-                            <div class="tag-div" id="tag-div-product">Product</div>
-                            <div class="tag-div" id="tag-div-discovery">Product discovery</div>
-                            <div class="tag-div" id="tag-div-delivery">Product delivery</div>
-                            <div class="tag-div" id="tag-div-technology">Technology</div>
-                            <div class="tag-div" id="tag-div-innovation">Innovation</div>
-                            <div class="tag-div" id="tag-div-funding">Funding</div>
-                            <div class="tag-div your-posts-tag" id="tag-div-your-posts">Your posts</div>
+                            <div class="tag-div" id="tag-div-product" data-tag="Product">Product</div>
+                            <div class="tag-div" id="tag-div-discovery" data-tag="Product discovery">Product discovery</div>
+                            <div class="tag-div" id="tag-div-delivery" data-tag="Product delivery">Product delivery</div>
+                            <div class="tag-div" id="tag-div-technology" data-tag="Technology">Technology</div>
+                            <div class="tag-div" id="tag-div-innovation" data-tag="Innovation">Innovation</div>
+                            <div class="tag-div" id="tag-div-funding" data-tag="Funding">Funding</div>
+                            <div class="tag-div your-posts-tag" id="tag-div-your-posts" data-tag="Your posts">Your posts</div>
                         </div>
                     </div>
                 </section>
                 <section class="tag-section tag-section-sort-by">
-                    <div class="sort-div">
+                    <!-- <div class="sort-div">
                         <h3 class="sort-by-title">Sort by:</h3>
                         <div class="sort-alternative-cont">
-                            <div class="sort-alternative">Recent activity</div>
                             <div class="sort-alternative">Newest</div>
-                            <div class="sort-alternative">Popularity</div>
+                            <div class="sort-alternative">Oldest</div>
                         </div>
-                    </div>
+                    </div> -->
                 </section>
                 <section class="feed-section">
                     <div class="feed-cont-new"></div>
@@ -220,6 +223,9 @@
                     </div>
                 </section>
             </section>
+
+            <!-- The following section is thus far only hard-coded, and would need some scripting and work before the app would be officially used: -->
+
             <section class="side-column-section">
                 <div class="background-image-cont">
                     <img src="images/community-space-grensen.png" alt="Community office" class="community-image">
@@ -308,6 +314,6 @@
             <div>All rights reserved © 2023</div>
             <a href="mailto:post@productpassion.no">Post@productpassion.no</a>
         </footer>
-        <script src="js/feed.js"></script>
+        <script type="module" src="js/feed.mjs"></script>
     </body>
 </html>
