@@ -23,6 +23,13 @@ const options = {
 // Handle "Your posts" tag filter
 // I didn't have time to rewrite these handleTags functions into one function to process the various filterings before the deadline.
 
+/**
+ * // JS Documentation for the handleTags() function
+ * @property {undefined} displayYourPosts Contains the entire function, including the click addeventlistener to trigger the function. Gives undefined when console logged, but works for the desired purpose, so assmunig it's correct.
+ * @function handleTags() Calls the API for the user's own posts, and displays these as dynamics HTML in the feed container on the feed.html page. As well as styling the current tag to mark that it is the user's own posts that is currently being displayed.
+ * @returns Returns the dynamic HTML from having called the API for the user's own posts, and appends it in the feed container of the feed.html page.
+ * 
+ */
 const displayYourPosts = yourPostsTagCont.addEventListener("click", async function handleTags() {
     try {
         const resp = await fetch(myPostsUrl, {
@@ -31,7 +38,7 @@ const displayYourPosts = yourPostsTagCont.addEventListener("click", async functi
                 Authorization: `Bearer ${token}`,
 		    },
         });
-        
+
         const posts = await resp.json();
 
         if (resp.ok) {
@@ -120,10 +127,19 @@ const displayYourPosts = yourPostsTagCont.addEventListener("click", async functi
     }
 });
 
-// Handle "Product" tag filter
+// Handle Product tag filter
 
+/**
+ * @property {undefined} displayFilteredPostsProduct Logs as undefined when logged, but contains all the functionality to filter by the product tag, and it works.
+ * @param {object} data Passes in the click event for the element that is clicked, in this case the Product tag div, that contains the data-set of "Product", that allows us to fetch the tag as a string, for further use.
+ * @property {string} myTag Contains the tag clicked as a string.
+ * @property {string} tagsUrl Contains the URL to be called for the specific tag that is targeted, in this case the "Product" tag.
+ * @returns Returns the dynamic HTML of the posts / post cards, that have the specific tag clicked by the user, in this case "Product", and build out and appends these posts in the feed cont of the feed.html page. It also styles the "Product" tag as marked, so the user understands that these are the posts being displayed, that is, the ones with the tag of "Product".
+ */
 const displayFilteredPostsProduct = productTagCont.addEventListener("click", async function handleTags(data) {
+    console.log("data: ", data);
     const myTag = data.target.dataset.tag;
+    console.log("mytag ", myTag);
     const tagsUrl = `${baseUrl}/social/posts?_tag=${myTag}&_author=true&_comments=true&_reactions=true`;
 
     try {
@@ -219,6 +235,9 @@ const displayFilteredPostsProduct = productTagCont.addEventListener("click", asy
 
 // Handle "Product discovery" tag filter
 
+/**
+ * See above for "Handle "Product tag filter" documentation
+ */
 const displayFilteredPostsDiscovery = discoveryTagCont.addEventListener("click", async function handleTags(data) {
     const myTag = data.target.dataset.tag;
     const tagsUrl = `${baseUrl}/social/posts?_tag=${myTag}&_author=true&_comments=true&_reactions=true`;
@@ -315,6 +334,9 @@ const displayFilteredPostsDiscovery = discoveryTagCont.addEventListener("click",
 
 
 // Handle "Product delivery" tag filter
+/**
+ * See above for "Handle "Product tag filter" documentation
+ */
 
 const displayFilteredPostsDelivery = deliveryTagCont.addEventListener("click", async function handleTags(data) {
     const myTag = data.target.dataset.tag;
@@ -411,6 +433,9 @@ const displayFilteredPostsDelivery = deliveryTagCont.addEventListener("click", a
 });
 
 // Handle "Technology" tag filter
+/**
+ * See above for "Handle "Product tag filter" documentation
+ */
 
 const displayFilteredPostsTechnology = technologyTagCont.addEventListener("click", async function handleTags(data) {
     const myTag = data.target.dataset.tag;
@@ -509,6 +534,9 @@ const displayFilteredPostsTechnology = technologyTagCont.addEventListener("click
 });
 
 // Handle "Innovation" tag filter
+/**
+ * See above for "Handle "Product tag filter" documentation
+ */
 
 const displayFilteredPostsInnovation = innovationTagCont.addEventListener("click", async function handleTags(data) {
     const myTag = data.target.dataset.tag;
@@ -605,6 +633,9 @@ const displayFilteredPostsInnovation = innovationTagCont.addEventListener("click
 });
 
 // Handle "Innovation" tag filter
+/**
+ * See above for "Handle "Product tag filter" documentation
+ */
 
 const displayFilteredPostsFunding = fundingTagCont.addEventListener("click", async function handleTags(data) {
     const myTag = data.target.dataset.tag;

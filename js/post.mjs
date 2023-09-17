@@ -29,6 +29,13 @@ const options = {
 
 // Display single post
 
+/**
+ * @function showSinglePost Fetches a single post on the server, and displays it with dynamically populated HTML that is appended to the feed cont of the single post page. It's called feed cont even though it's only for one post, to maintain similar CSS styling and avoid double work.
+ * @property {object} editAndDeleteSection Contains the HTML that is being displayed only if the logged in user is the author of the post, to enable the user to edit and / or delete the post. If the logged in user is not the author of the post, the section is inaccessible for the same reason.
+ * @returns The async function returns the post from the API call and populates this as dynamic HTML and displays it in the feed container on the post.html page.
+ * @property {string} apiUrlSinglePost This is the dynamically genereated URL for the API call for a single post, and it is created with a query string that is obtained from the original page that redirected it.
+ * @function profileData This is another function nested in the showSinglePost function. It is nested to be able to use the name of the author for the api call, to fetch data about the authoer and display it in parallell with the single post. So that users of the social media application can not only see the single posts, but also the authoer of that post in parallell, that I think is quite neat in general. THe profile data is the populated into the hard coded HTML of the page, by using the data recieved from the profileData api call.
+ */
 async function showSinglePost() {
     console.log("Username: ", usernameConst); 
 
@@ -98,6 +105,7 @@ async function showSinglePost() {
 
         if (usernameConst != postAuthor) {
             editAndDeleteSection.style.display = "none";
+            console.log("edit and delete section: ", editAndDeleteSection);
         }
 
         async function profileData() {
@@ -162,6 +170,9 @@ const deleteOptions = {
     },
 };
 
+/**
+ * @returns This function quite simply deletes a post with the correct API call, based on the ID of the post, which is then populated in the URL for the API call, based on the same query string method used to fetch the post in the first place. It also displays a success message to the user when the api call of the deletion was successful.
+ */
 deleteButton.addEventListener("click", async()=> {
     try {
         const resp = await fetch(deleteUrl, deleteOptions);
@@ -194,6 +205,9 @@ function displayUpdatePost() {
     updateSinglePostInputs();
 }
 
+/**
+ * @function updateSinglePostInputs This function simply populates the edit input fields, to prevent the user from having to re-input all the same data for the post, if they are only going to change a little bit of the post.
+ */
 async function updateSinglePostInputs() { 
     try {
         const resp = await fetch(apiUrlSinglePost, options);
@@ -216,6 +230,12 @@ async function updateSinglePostInputs() {
     }
 };
 
+/**
+ * @function This function takes the inputs from the edit fields, and creates an API call to the server to update that single post, based on the previously gathered data.
+ * @property {object} feedSectionCont This is the section where the post is being displayed with the innerHTML. It is being reset, so that the new and updated post data, can be repopulated, without the old data still being there.
+ * @property {object} updateSinglePostSection This section is being displayed and un-displayed, based on whether the user shall edit the post or not, as decided by the "Edit post" button. To enable the user to actually edit the post on the same page of the post.
+ * @returns The function returns the updated post with its data, and repopulates this into the feed section container on the web page, and displays it to the user with dynamic HTML.
+ */
 formUpdate.addEventListener("submit", async (data) => {
     data.preventDefault();
 
@@ -263,6 +283,7 @@ formUpdate.addEventListener("submit", async (data) => {
             postAuthorImage = "./images/blank-profile-picture.png";
         }
 
+        console.log("feed section cont: ", typeof feedSectionCont);
         feedSectionCont.innerHTML = "";
 
         const postCard = document.createElement("div");

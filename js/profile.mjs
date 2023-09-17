@@ -18,6 +18,9 @@ const options = {
     },
 };
 
+/**
+ * @function profileData This function uses the URL that is generated with the author's username, to create an API call that fetches the data about the author, to display it on the profile section of the profile page. The data is dynamically populated with JS into the hardcoded HTML of the web page.
+ */
 async function profileData() {
     try {
         const response = await fetch(profileUrl, options);
@@ -60,6 +63,9 @@ async function profileData() {
 
 profileData();
 
+/**
+ * @function showProfilePosts This function uses the logged in users name, and uses that to create a URL that fetches the posts of the author from the server. Then it uses that data fetched, to display the posts with dynamic HTML that is automatically being built and appended to the relevant feed container section of the web page.
+ */
 async function showProfilePosts() {
           
     console.log("options: ", options);

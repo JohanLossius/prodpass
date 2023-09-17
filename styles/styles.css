@@ -353,10 +353,6 @@ footer {
     margin-bottom: 2rem;
 }
 
-.tag-container-div {
-
-}
-
 .tag-div {
     background-color: #F5F1F1;
     color: #F96B87;
@@ -364,10 +360,6 @@ footer {
     font-size: medium;
     padding: 7px;
     margin: auto 5px;
-}
-
-.sort-div {
-
 }
 
 .sort-alternative-cont {
@@ -537,10 +529,6 @@ footer {
     text-align: center;
 }
 
-.profile-pic-class {
-    
-}
-
 .online-now-list-item-div {
     display: flex;
     flex-direction: row;
@@ -597,13 +585,8 @@ footer {
     margin: 1rem;
 }
 
-.online-or-not-div {
-
-}
-
 .title-profile-posts {
     text-align: center;
-
 }
 
 .profile-section-profile-page {
@@ -860,10 +843,6 @@ footer {
     padding: 5px;
 }
 
-.register-form > div {
-
-}
-
 .success-message {
     color: green;
 }
@@ -911,12 +890,6 @@ footer {
 }
 
 /* Media Queries */
-
-@media (max-width: 1399px) {
-    .online-nav {
-
-    }
-}
 
 @media (max-width: 1199px) {
     .logo-container {
@@ -973,7 +946,6 @@ footer {
         text-align: right;
         width: auto;
     }
-    .online-header
 }
 
 @media (max-width: 899px) {
@@ -1148,10 +1120,6 @@ footer {
         width: 90%;
     }
 
-    .online-now-cont {
-
-    }
-
     .online-now-list-item-div {
         width: 80%;
     }
@@ -1178,10 +1146,6 @@ footer {
     .logo {
         width: 100px;
         height: auto;
-    }
-
-    .logo-container {
-        width: 
     }
 
     .cta {

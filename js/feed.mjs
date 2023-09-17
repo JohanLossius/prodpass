@@ -5,6 +5,8 @@ import { usernameConst, token, profilePictureUrl } from "./constants/localStorag
 
 import { displayYourPosts, displayFilteredPostsProduct, displayFilteredPostsDiscovery, displayFilteredPostsDelivery, displayFilteredPostsTechnology, displayFilteredPostsInnovation, displayFilteredPostsFunding } from "./tags/handleTags.mjs";
 
+console.log("yourproducts tag: ", displayFilteredPostsProduct);
+
 const inputTitle = document.querySelector("#post-title");
 const inputMessage = document.querySelector("#post-message");
 const submitButton = document.querySelector("#post-button");
@@ -15,9 +17,15 @@ const tagInput = document.querySelector("#tags");
 const feedContNew = document.querySelector(".feed-cont-new");
 const feedCont = document.querySelector(".feed-cont");
 
+/**
+ * @param {object} data Passes in the data input into the form, and submits it as an Object.
+ * @property {object} createPostConst Populates the options container for the API call to be made, with the data as passed in from the form through the submit event.
+ * @returns The try async function eventually returns the dynamic HTML generated from the submit form, by populating this data into the dynamically generated post card, and appends this to the uppermost Feed Cont on the Feed page. It also displays a success message to the user for when the api call was successful.
+ */
+
 form.addEventListener("submit", async (data) => {
     data.preventDefault();
-
+    console.log("data: ", data);
     if (!inputTitle.value || !inputMessage.value) {
         feedbackCont.innerHTML = `<span class="error-message">Please fill out your title and post message.</span>`;
     }    
@@ -132,15 +140,19 @@ form.addEventListener("submit", async (data) => {
     }  
 });
 
-const options = {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-};
 
+/**
+ * @function displayAllPosts Fetches all the posts on the server, limited to a 100 posts max, and displays these with dynamically populated HTML that is appended to the main feed cont on the feed.html page.
+ * @property {string} allPostsUrl Contains the right URL for fetching all the posts from the API call, that can be done when the authorization header with its token is present.
+ * @returns The async function returns the posts from the API and populates this as dynamic HTML and displays it in the feed container on the feed.html page. The HTML is generated to avoid possible XSS attacks by using the TextContent property instead of setting all .innerHTML dynamically, allowing users to misuse the HTML tags on submitting messages to the API.
+ */
 async function displayAllPosts() {
     try {
-        const resp = await fetch(allPostsUrl, options);
+        const resp = await fetch(allPostsUrl, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
         console.log("Response for API call: ", resp);
         const json = await resp.json();
         console.log("JSON const: ", json);

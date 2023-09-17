@@ -20,6 +20,13 @@ const loginUrl = `${baseUrl}/social/auth/login`;
 
 /* Log In Code */
 
+/**
+ * @param {object} data Passes in the data from the submit event
+ * @property {string} token Sets the accessToken that is returned from the login api call, later to be set to local storage.
+ * @property {string} profilePictureUrl Sets the profilePicture url, if submitted upon registration, to the local storage, to display on profile later, without having to do an APi call for it after the user is logged in.
+ * @property {string} username Sets the username of the person, that is aggregated from both the first and the last name with an underscore, to be set to local storage. To access the Author name later to make API calls, and populate profile data etc.
+ * @function Checks if both input fields of password and email are filled out. If no, tells user to do so. If yes, it populates the options container to make an api call, based on the data input. THen it makes an attempt to login with an API call, and if successful sets the local storage and redirects the user to the feed as logged in. If the login was unsuccessful, it instructs the user with the dynamic error message how to correct it.
+ */
 form.addEventListener("submit", async (data) => {
   data.preventDefault();
 
